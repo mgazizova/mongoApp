@@ -1,0 +1,11 @@
+/home/mgazizova/Документы/workspaceVSCode/testDB/bin/Debug/netcoreapp2.2/testDB.deps.json
+/home/mgazizova/Документы/workspaceVSCode/testDB/bin/Debug/netcoreapp2.2/testDB.runtimeconfig.json
+/home/mgazizova/Документы/workspaceVSCode/testDB/bin/Debug/netcoreapp2.2/testDB.runtimeconfig.dev.json
+/home/mgazizova/Документы/workspaceVSCode/testDB/bin/Debug/netcoreapp2.2/testDB.dll
+/home/mgazizova/Документы/workspaceVSCode/testDB/bin/Debug/netcoreapp2.2/testDB.pdb
+/home/mgazizova/Документы/workspaceVSCode/testDB/obj/Debug/netcoreapp2.2/testDB.csprojAssemblyReference.cache
+/home/mgazizova/Документы/workspaceVSCode/testDB/obj/Debug/netcoreapp2.2/testDB.csproj.CoreCompileInputs.cache
+/home/mgazizova/Документы/workspaceVSCode/testDB/obj/Debug/netcoreapp2.2/testDB.AssemblyInfoInputs.cache
+/home/mgazizova/Документы/workspaceVSCode/testDB/obj/Debug/netcoreapp2.2/testDB.AssemblyInfo.cs
+/home/mgazizova/Документы/workspaceVSCode/testDB/obj/Debug/netcoreapp2.2/testDB.dll
+/home/mgazizova/Документы/workspaceVSCode/testDB/obj/Debug/netcoreapp2.2/testDB.pdb
