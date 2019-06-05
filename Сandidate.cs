@@ -13,7 +13,7 @@ using Newtonsoft.Json.Linq;
 
 namespace MongoDBApp
 {
-    class Requirement   : Participants
+    class Requirement   //: Participants
     {
         public int id;
         public string nameAttr;
@@ -26,12 +26,10 @@ namespace MongoDBApp
             this.nameAttr = nameAttr;
             this.valueAttr = valueAttr;
             this.importance = importance;
-        }
-
-        
+        }        
     }
 
-    class Candidate : Participants
+    class Candidate // : Participants
     {
         public List <Candidate> listCandidate;
         public int id;
@@ -126,6 +124,14 @@ namespace MongoDBApp
         {
             Console.WriteLine(this.ToJson());
         }
+    
+        public async Task SaveDocs(IMongoDatabase database)
+        {
+            var collection = database.GetCollection<BsonDocument>("candidate");
+            await collection.InsertOneAsync(this.ToBsonDocument());
+        }
+    
+    
     }
 
 }

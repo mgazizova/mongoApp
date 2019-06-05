@@ -12,7 +12,8 @@ namespace MongoDBApp
 {
     class Participants
     {
-        public List <Participants> participantsList;
+        public List <Participants> participantsList;    //пока не пригодился
+        
     }
 
 }

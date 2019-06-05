@@ -16,15 +16,6 @@ namespace MongoDBApp
     class IntegratedCriterion
     {
         public List <Accordance> accordanceList;
-        public IntegratedCriterion()
-        {
-            
-        }
-        
-        public void MapCurrentRequirenments(Requirement requirement, List <Employer> employerList)
-        {
-      //      foreach 
-        }
 
         public void FindIntegratedCriterion(List<Candidate> candidates, List<Employer> employers)
         {
@@ -51,5 +42,6 @@ namespace MongoDBApp
                 }
             }
         }
+            
     }
 }

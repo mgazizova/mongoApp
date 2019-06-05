@@ -154,10 +154,15 @@ namespace MongoDBApp
                     }
                 }
             }
-
         public void ShowEmployer()
         {
             Console.WriteLine(this.ToJson());
+        }
+
+        public async Task SaveDocs(IMongoDatabase database)
+        {
+            var collection = database.GetCollection<BsonDocument>("employer");
+            await collection.InsertOneAsync(this.ToBsonDocument());
         }
     }
 }
