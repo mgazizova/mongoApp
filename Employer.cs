@@ -11,27 +11,31 @@ using MongoDB.Bson.Serialization;
 
 namespace MongoDBApp
 {
-    class Employer
+    class Employer : Participants
     {
-        public int id {get; set;} 
-        public string specialty {get; set;} 
-        public string workType {get; set;} 
-        public string wageForm {get; set;} 
-        public string schedule {get; set;} 
-        public bool housing {get; set;} 
-        public bool socialPackage {get; set;} 
-        public bool kindergarten {get; set;}
-        public bool dispensary {get; set;} 
-        public bool insalubrity {get; set;} 
-        public string natureOfWork {get; set;} 
-        public string location {get; set;} 
-        public bool careerProspects {get; set;} 
-        public int wage {get; set;} 
-        public DateTime placementDate {get; set;} 
+        public List<Employer> listEmployer;
+        public int id;
+        public string specialty;
+        public string workType;
+        public string wageForm;
+        public string schedule;
+        public bool housing;
+        public bool socialPackage; 
+        public bool kindergarten;
+        public bool dispensary; 
+        public bool insalubrity; 
+        public string natureOfWork;
+        public string location;
+        public bool careerProspects;
+        public int wage; 
+        public DateTime placementDate; 
 
         private void MapEmployerAttributes(BsonElement element)
         {
-            if (element.Name == "specialty")
+            if (element.Name == "_id")
+                this.id = element.Value.ToInt32();
+
+            else if (element.Name == "specialty")
                 this.specialty = element.Value.ToString();
 
             else if (element.Name == "work_type")
@@ -124,12 +128,12 @@ namespace MongoDBApp
             this.ShowEmployer();
         }
 
-        public static async Task GetAllEmployers(IMongoDatabase database)
+        public async Task GetAllEmployers(IMongoDatabase database)
             {
                 var employerCollection = database.GetCollection<BsonDocument>("employer");
                 var filter = new BsonDocument();
                 int countEmployers = 0;
-                List <Employer> employerList = new List<Employer>();
+                this.listEmployer = new List<Employer>();
                 using (var cursor = await employerCollection.FindAsync(filter))
                 {
                     while (await cursor.MoveNextAsync())
@@ -143,7 +147,7 @@ namespace MongoDBApp
                             {
                                 tempEmpl.MapEmployerAttributes(el);
                             } 
-                            employerList.Add(tempEmpl);
+                            this.listEmployer.Add(tempEmpl);
                             countEmployers++;                   
                         }
                         

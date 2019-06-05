@@ -7,6 +7,8 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using System.Configuration;
 using System.Threading;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace MongoDBApp
 {
@@ -18,13 +20,16 @@ namespace MongoDBApp
             MongoClient client = new MongoClient(connectionString);
             var database = client.GetDatabase("sdb_findJob");
 
-            MongoDBApp.Employer.GetAllEmployers(database).GetAwaiter();
+            Employer myEmployer = new Employer();
+            myEmployer.GetAllEmployers(database).GetAwaiter();
 
-            Employer emp1 = new Employer();
-            emp1.GetEmployer(database,1).GetAwaiter();
+            Candidate myCandidate = new Candidate();
+            myCandidate.GetAllCandidates(database).GetAwaiter();
             
-            Candidate cand1= new Candidate();
-            cand1.GetCandidate(database, 1).GetAwaiter();
+            Thread.Sleep(1000);
+            IntegratedCriterion ic = new IntegratedCriterion();
+            ic.FindIntegratedCriterion(myCandidate.listCandidate, myEmployer.listEmployer);
+
             Console.ReadLine();
         }
 
